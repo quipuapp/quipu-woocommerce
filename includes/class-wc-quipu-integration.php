@@ -42,7 +42,7 @@ class WC_Quipu_Integration extends WC_Integration {
 		}
 		
 		$this->id                 = 'quipu-integration';
-		$this->method_title       = __( 'Quipu Integration', 'woocommerce-quipu-integration' );
+		$this->method_title       = __( 'Quipu', 'woocommerce-quipu-integration' );
 		$this->method_description = __( 'Quipu accounting integration with WooCommerce.', 'woocommerce-quipu-integration' );
 
 		// Load the settings.
