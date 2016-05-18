@@ -411,7 +411,7 @@ class WC_Quipu_Integration extends WC_Integration {
 				            "email" => get_post_meta($order_id, '_billing_email', true),
 				            "address" => get_post_meta($order_id, '_billing_address_1', true).",".get_post_meta($order_id, '_billing_address_2', true),
 				            "town" => get_post_meta($order_id, '_billing_city', true),
-				            "zip_code" => get_post_meta($order_id, '_billing_country', true),
+				            "zip_code" => get_post_meta($order_id, '_billing_postcode', true),
 				            "country_code" => get_post_meta($order_id, '_billing_country', true)
 						);
 
@@ -468,7 +468,7 @@ class WC_Quipu_Integration extends WC_Integration {
 					$product_cost = ($value['line_total'])/($value['qty']);
 
 		            $item = array(
-				            	"product" => "$value[name]",
+				            	"product" => "$value[name] (#$order_id)",
 				            	"cost" => "$product_cost",
 				            	"quantity" => "$value[qty]",
 				            	"vat_per" => "$vat_per"
