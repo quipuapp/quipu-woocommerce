@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Quipu\n"
-"POT-Creation-Date: 2016-05-27 18:52+0200\n"
-"PO-Revision-Date: 2016-05-27 18:57+0200\n"
+"POT-Creation-Date: 2016-06-01 16:49+0200\n"
+"PO-Revision-Date: 2016-06-01 16:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
@@ -31,11 +31,7 @@ msgstr ""
 "aún no tienes una cuenta en Quipu, pruébalo gratis <a href=\"https://"
 "getquipu.com/woocommerce-programa-facturacion-impuestos?"
 "utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce\" target="
-"\"_blank\">aquí</a><p>Automatización de contactos WooCommerce no permite "
-"guardar el NIF del proveedor, por ese motivo cada vez que se efectúe una "
-"factura de cobro se creará un cliente nuevo en Quipu. Sin embargo, si usas "
-"plugin [EU VAT number], puedes asegurarte de que todas las facturas se "
-"agrupen bajo el mismo cliente dentro de Quipu.</p>"
+"\"_blank\">aquí</a>."
 
 #: includes/class-wc-quipu-integration.php:114
 #, php-format
@@ -103,24 +99,41 @@ msgstr ""
 "facturas generadas tendrían los números FREC-1, FREC-2 y demás."
 
 #: includes/class-wc-quipu-integration.php:154
+msgid "Customer Import"
+msgstr "Automatización de contactos"
+
+#: includes/class-wc-quipu-integration.php:156
+msgid ""
+"All customers will be automtically added to your Quipu account. To avoid "
+"duplication use the <a href=\"https://www.woothemes.com/products/eu-vat-"
+"number/\" target=\"_blank\">EU VAT number</a> plugin to match against "
+"existing customers in Quipu."
+msgstr ""
+"WooCommerce no permite guardar el NIF del proveedor, por ese motivo cada vez "
+"que se efectúe una factura de cobro se creará un cliente nuevo en Quipu. Sin "
+"embargo, si usas el plugin <a href=\"https://www.woothemes.com/products/eu-"
+"vat-number/\" target=\"_blank\">EU VAT number</a>, puedes asegurarte de que "
+"todas las facturas se agrupen bajo el mismo cliente dentro de Quipu."
+
+#: includes/class-wc-quipu-integration.php:159
 msgid "Debug Log"
 msgstr "Log de depuración"
 
-#: includes/class-wc-quipu-integration.php:156
+#: includes/class-wc-quipu-integration.php:161
 msgid "Enable logging"
 msgstr "Permitir logging"
 
-#: includes/class-wc-quipu-integration.php:158
+#: includes/class-wc-quipu-integration.php:163
 msgid "Log events such as API requests"
 msgstr ""
 "Si lo habilitas, se guardará un registro de las llamadas a la API. Útil para "
 "desarrolladores."
 
-#: includes/class-wc-quipu-integration.php:168
+#: includes/class-wc-quipu-integration.php:173
 msgid "Synchoronize Orders"
 msgstr "Sincroniza Pedidos"
 
-#: includes/class-wc-quipu-integration.php:170
+#: includes/class-wc-quipu-integration.php:175
 msgid ""
 "Synchronize previous orders in \"Completed\" status with your Quipu account."
 msgstr ""
@@ -136,11 +149,11 @@ msgstr ""
 "<p>Si ya tienes tanto facturas como tickets pero no están en Quipu, importa "
 "manualmente esta información antes para poder tenerlo todo centralizado.</p>"
 
-#: includes/class-wc-quipu-integration.php:173
+#: includes/class-wc-quipu-integration.php:178
 msgid "Sync Numbering Series"
 msgstr "Serie de numeración para sincronizar"
 
-#: includes/class-wc-quipu-integration.php:175
+#: includes/class-wc-quipu-integration.php:180
 msgid ""
 "Enter a numeration series for previous orders and \"Save Changes\" before "
 "syncronizing."
@@ -148,26 +161,26 @@ msgstr ""
 "Introducir una serie de numeración para los pedidos anteriores y guardar "
 "antes de sincronizar."
 
-#: includes/class-wc-quipu-integration.php:178
+#: includes/class-wc-quipu-integration.php:183
 msgid "Sync"
 msgstr "Sincronizar"
 
-#: includes/class-wc-quipu-integration.php:183
+#: includes/class-wc-quipu-integration.php:188
 msgid "Sync orders"
 msgstr "Sincroniza Pedidos"
 
-#: includes/class-wc-quipu-integration.php:187
+#: includes/class-wc-quipu-integration.php:192
 msgid " "
 msgstr ""
 
-#: includes/class-wc-quipu-integration.php:189
+#: includes/class-wc-quipu-integration.php:194
 msgid ""
 "<i>Note: Once the sync is completed, this option will disapear from the "
 "Quipu settings menu!</i>"
 msgstr ""
 "<i>Una vez la sincronización esté completa, esta opción desaparecerá.</i>"
 
-#: includes/class-wc-quipu-integration.php:284
+#: includes/class-wc-quipu-integration.php:289
 msgid ""
 "Cannot sync with Quipu with an empty \"Sync Numbering Series\". Please enter "
 "a \"Sync Numbering Series\" to sync previous orders."
@@ -176,7 +189,7 @@ msgstr ""
 "favor, rellena la serie de numeración para sincronizar pedidos pagados ya "
 "existentes."
 
-#: includes/class-wc-quipu-integration.php:291
+#: includes/class-wc-quipu-integration.php:296
 msgid ""
 "The API key or secret are empty. Enter API key or secret to use WooCommerce "
 "Quipu plugin. "
@@ -184,15 +197,15 @@ msgstr ""
 "La clave y/o secreto API están vacíos. Introducelos para empezar a usar el "
 "plugin de Quipu para WooCommerce."
 
-#: includes/class-wc-quipu-integration.php:298
+#: includes/class-wc-quipu-integration.php:303
 msgid ""
 "The \"Numbering Series\" and \"Sync Numbering Series\" cannot be the same. "
 msgstr ""
 "Las series de numeración para nuevos pedidos y pedidos pagados ya existentes "
 "no pueden ser la misma."
 
-#: includes/class-wc-quipu-integration.php:305
-#: includes/class-wc-quipu-integration.php:346
+#: includes/class-wc-quipu-integration.php:310
+#: includes/class-wc-quipu-integration.php:351
 msgid ""
 "The \"Sync Numbering Series\" already exists in Quipu. Enter a new numbering "
 "series to sync previous orders."
@@ -200,24 +213,24 @@ msgstr ""
 "La serie de numeración para la sincronización ya existe en Quipu. Introduce "
 "una nueva serie de numeración para sincronizar pedidos ya existentes."
 
-#: includes/class-wc-quipu-integration.php:312
+#: includes/class-wc-quipu-integration.php:317
 msgid "Error, could not save settings."
 msgstr "Ha habido un error y no se ha podido guardar la configuración."
 
-#: includes/class-wc-quipu-integration.php:326
+#: includes/class-wc-quipu-integration.php:331
 msgid ""
 "Please enter a \"Sync Numbering Series\" before syncing previous orders."
 msgstr ""
 "Por favor, rellena una serie de numeración para poder sincronizar pedidos ya "
 "existentes."
 
-#: includes/class-wc-quipu-integration.php:331
+#: includes/class-wc-quipu-integration.php:336
 msgid "Please save your API key and secret before syncing previous orders."
 msgstr ""
 "Por favor, guarda la clave y el secreto de la API antes de sincronizar "
 "pedidos ya existentes."
 
-#: includes/class-wc-quipu-integration.php:380
+#: includes/class-wc-quipu-integration.php:385
 msgid "All previous orders have been synced with your Quipu account."
 msgstr ""
 "Todos los pedidos pagados ya existentes se han sincronizado con tu cuenta de "
@@ -230,6 +243,18 @@ msgid ""
 msgstr ""
 "WooCommerce Quipu integración requiere WooCommerce para ser instalado y "
 "activado!"
+
+#~ msgid ""
+#~ "All customers will be automtically added to your Quipu account. To avoid "
+#~ "duplication use the EU VAT number plugin to match against existing "
+#~ "customers."
+#~ msgstr ""
+#~ "WooCommerce no permite guardar el NIF del proveedor, por ese motivo cada "
+#~ "vez que se efectúe una factura de cobro se creará un cliente nuevo en "
+#~ "Quipu. Sin embargo, si usas el plugin <a href=\"https://www.woothemes.com/"
+#~ "products/eu-vat-number/\" target=\"_blank\">EU VAT number</a>, puedes "
+#~ "asegurarte de que todas las facturas se agrupen bajo el mismo cliente "
+#~ "dentro de Quipu."
 
 #~ msgid "Sync orders."
 #~ msgstr "Sincroniza Pedidos"

@@ -150,6 +150,11 @@ class WC_Quipu_Integration extends WC_Integration {
 				'desc_tip'          => true,
 				'default'           => ''
 			),
+			'cust_title' => array( 
+					'title' => __( 'Customer Import', 'woocommerce-quipu-integration' ), 
+					'type' => 'title', 
+					'description' => __( 'All customers will be automtically added to your Quipu account. To avoid duplication use the <a href="https://www.woothemes.com/products/eu-vat-number/" target="_blank">EU VAT number</a> plugin to match against existing customers in Quipu.', 'woocommerce-quipu-integration' )
+			),
 			'debug' => array(
 				'title'             => __( 'Debug Log', 'woocommerce-quipu-integration' ),
 				'type'              => 'checkbox',
