@@ -43,7 +43,7 @@ class WC_Quipu_Integration extends WC_Integration {
 		
 		$this->id                 = 'quipu-integration';
 		$this->method_title       = __( 'Quipu', 'woocommerce-quipu-integration' );
-		$this->method_description = __( 'Quipu accounting integration with WooCommerce.', 'woocommerce-quipu-integration' );
+		$this->method_description = __( 'Quipu accounting integration with WooCommerce. If you do not have a Quipu account try it <a href="https://getquipu.com/woocommerce-programa-facturacion-impuestos?utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce" target="_blank">here</a>.', 'woocommerce-quipu-integration' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -125,28 +125,28 @@ class WC_Quipu_Integration extends WC_Integration {
 			'api_key' => array(
 				'title'             => __( 'API Key', 'woocommerce-quipu-integration' ),
 				'type'              => 'text',
-				'description'       => __( 'Enter your Quipu API Key. You can find this in ...', 'woocommerce-quipu-integration' ),
+				'description'       => __( 'Enter your Quipu API Key. You can find this in your Quipu account in Settings -> Integrations -> App ID', 'woocommerce-quipu-integration' ),
 				'desc_tip'          => true,
 				'default'           => ''
 			),
 			'api_secret' => array(
 				'title'             => __( 'API Secret', 'woocommerce-quipu-integration' ),
 				'type'              => 'text',
-				'description'       => __( 'Enter your Quipu API Secret. You can find this ...', 'woocommerce-quipu-integration' ),
+				'description'       => __( 'Enter your Quipu API Secret. You can find this in your Quipu account in Settings -> Integrations -> App secret', 'woocommerce-quipu-integration' ),
 				'desc_tip'          => true,
 				'default'           => ''
 			),
 			'num_series' => array(
 				'title'             => __( 'Numbering Series', 'woocommerce-quipu-integration' ),
 				'type'              => 'text',
-				'description'       => __( 'Enter a numeration series for your Quipu invoices', 'woocommerce-quipu-integration' ),
+				'description'       => __( 'Enter a numeration series for your Quipu invoices e.g. "WC" to generate invoices WC-1, WC-2 etc.', 'woocommerce-quipu-integration' ),
 				'desc_tip'          => true,
 				'default'           => ''
 			),
 			'refund_num_series' => array(
 				'title'             => __( 'Refund Numbering Series', 'woocommerce-quipu-integration' ),
 				'type'              => 'text',
-				'description'       => __( 'Enter a refund numeration series for your Quipu invoices', 'woocommerce-quipu-integration' ),
+				'description'       => __( 'Enter a refund numeration series for your Quipu invoices e.g. "RF" to generate refund invoices RF-1, RF-2 etc.', 'woocommerce-quipu-integration' ),
 				'desc_tip'          => true,
 				'default'           => ''
 			),
@@ -172,7 +172,7 @@ class WC_Quipu_Integration extends WC_Integration {
 				'sync_num_series' => array(
 					'title'             => __( 'Sync Numbering Series', 'woocommerce-quipu-integration' ),
 					'type'              => 'text',
-					'description'       => __( 'A numeration series for previous orders MUST be entered, otherwise no sync will be performed.', 'woocommerce-quipu-integration' )
+					'description'       => __( 'Enter a numeration series for previous orders and "Save Changes" before syncronizing.', 'woocommerce-quipu-integration' )
 				),
 				'customize_button' => array(
 					'title'             => __( 'Sync', 'woocommerce-quipu-integration' ),
@@ -180,11 +180,11 @@ class WC_Quipu_Integration extends WC_Integration {
 					'custom_attributes' => array(
 						'onclick' => "syncOrdersQuipu();",
 					),
-					'description'       => __( 'Sync orders.', 'woocommerce-quipu-integration' ),
+					'description'       => __( 'Sync orders', 'woocommerce-quipu-integration' ),
 					'desc_tip'          => true,
 				),
 				'sync_message' => array( 
-					'title' => __( '', 'woocommerce-quipu-integration' ), 
+					'title' => __( ' ', 'woocommerce-quipu-integration' ), 
 					'type' => 'title', 
 					'description' => __( '<i>Note: Once the sync is completed, this option will disapear from the Quipu settings menu!</i>', 'woocommerce-quipu-integration' )
 				),			

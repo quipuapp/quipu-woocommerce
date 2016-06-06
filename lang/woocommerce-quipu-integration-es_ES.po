@@ -1,0 +1,260 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WC Quipu\n"
+"POT-Creation-Date: 2016-05-27 18:52+0200\n"
+"PO-Revision-Date: 2016-05-27 18:57+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-wc-quipu-integration.php:45
+msgid "Quipu"
+msgstr "Quipu"
+
+#: includes/class-wc-quipu-integration.php:46
+msgid ""
+"Quipu accounting integration with WooCommerce. If you do not have a Quipu "
+"account try it <a href=\"https://getquipu.com/woocommerce-programa-"
+"facturacion-impuestos?"
+"utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce\" target="
+"\"_blank\">here</a>."
+msgstr ""
+"Integración del programa de facturación para ecommerce con WooCommerce. Si "
+"aún no tienes una cuenta en Quipu, pruébalo gratis <a href=\"https://"
+"getquipu.com/woocommerce-programa-facturacion-impuestos?"
+"utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce\" target="
+"\"_blank\">aquí</a><p>Automatización de contactos WooCommerce no permite "
+"guardar el NIF del proveedor, por ese motivo cada vez que se efectúe una "
+"factura de cobro se creará un cliente nuevo en Quipu. Sin embargo, si usas "
+"plugin [EU VAT number], puedes asegurarte de que todas las facturas se "
+"agrupen bajo el mismo cliente dentro de Quipu.</p>"
+
+#: includes/class-wc-quipu-integration.php:114
+#, php-format
+msgid ""
+"WooCommerce Quipu: Plugin is enabled but no api key or secret provided. "
+"Please enter your api key and secret <a href=\"%s\">here</a>."
+msgstr ""
+"Quipu para WooCommerce: el plugin está activado pero no se han introducido "
+"credenciales para la API. Introduce tu clave y secreto <a href=\"%s\">aquí</"
+"a>."
+
+#: includes/class-wc-quipu-integration.php:126
+msgid "API Key"
+msgstr "Clave de la API"
+
+#: includes/class-wc-quipu-integration.php:128
+msgid ""
+"Enter your Quipu API Key. You can find this in your Quipu account in "
+"Settings -> Integrations -> App ID"
+msgstr ""
+"Esta clave la tienes en tu cuenta de Quipu, en Configuración → Integraciones "
+"→ API"
+
+#: includes/class-wc-quipu-integration.php:133
+msgid "API Secret"
+msgstr "Secreto de la API"
+
+#: includes/class-wc-quipu-integration.php:135
+msgid ""
+"Enter your Quipu API Secret. You can find this in your Quipu account in "
+"Settings -> Integrations -> App secret"
+msgstr ""
+"La clave de la API la tienes en tu cuenta de Quipu, en Configuración → "
+"Integraciones →\rAPI"
+
+#: includes/class-wc-quipu-integration.php:140
+msgid "Numbering Series"
+msgstr "Serie de numeración"
+
+#: includes/class-wc-quipu-integration.php:142
+msgid ""
+"Enter a numeration series for your Quipu invoices e.g. \"WC\" to generate "
+"invoices WC-1, WC-2 etc."
+msgstr ""
+"Indica la serie de numeración que usarás para las facturas generadas a "
+"través de WooCommerce: Quipu las creará automáticamente de forma "
+"correlativa. La serie se creará si no existe ya en Quipu, y tiene que ser "
+"diferente de la que has usado con los pedidos pagados que ya existían. "
+"Ejemplo: una serie podría ser FAC, que generaría las facturas FAC-1, FAC-2 y "
+"demás."
+
+#: includes/class-wc-quipu-integration.php:147
+msgid "Refund Numbering Series"
+msgstr "Serie de numeración de las facturas rectificativas"
+
+#: includes/class-wc-quipu-integration.php:149
+msgid ""
+"Enter a refund numeration series for your Quipu invoices e.g. \"RF\" to "
+"generate refund invoices RF-1, RF-2 etc."
+msgstr ""
+"Indica una serie de de numeración para tus facturas rectificativas, "
+"correspondientes a las devoluciones. Esta serie de numeración se creará en "
+"Quipu si no existe aún. A partir de ahí, Quipu las creará automáticamente "
+"con la numeración adecuada. Ejemplo: una serie podría ser FREC, y las "
+"facturas generadas tendrían los números FREC-1, FREC-2 y demás."
+
+#: includes/class-wc-quipu-integration.php:154
+msgid "Debug Log"
+msgstr "Log de depuración"
+
+#: includes/class-wc-quipu-integration.php:156
+msgid "Enable logging"
+msgstr "Permitir logging"
+
+#: includes/class-wc-quipu-integration.php:158
+msgid "Log events such as API requests"
+msgstr ""
+"Si lo habilitas, se guardará un registro de las llamadas a la API. Útil para "
+"desarrolladores."
+
+#: includes/class-wc-quipu-integration.php:168
+msgid "Synchoronize Orders"
+msgstr "Sincroniza Pedidos"
+
+#: includes/class-wc-quipu-integration.php:170
+msgid ""
+"Synchronize previous orders in \"Completed\" status with your Quipu account."
+msgstr ""
+"<p>Contabilización de los pedidos pagados existentes como facturas.  "
+"Sincroniza todos los pedidos pagados existentes en tu WooCommerce como "
+"facturas en tu cuenta de Quipu:</p>\n"
+"<p>En caso de que no tengas ningún pedido porque estás empezando, omite este "
+"paso.</p>\n"
+"<p>Si ya tienes pedidos pagados en tu WooCommerce, indica únicamente una "
+"serie de numeración nueva (que solo servirá para estos) para contabilizarlos "
+"como facturas y clica en “sincronizar” para que aparecerán automáticamente "
+"en Quipu.</p>\n"
+"<p>Si ya tienes tanto facturas como tickets pero no están en Quipu, importa "
+"manualmente esta información antes para poder tenerlo todo centralizado.</p>"
+
+#: includes/class-wc-quipu-integration.php:173
+msgid "Sync Numbering Series"
+msgstr "Serie de numeración para sincronizar"
+
+#: includes/class-wc-quipu-integration.php:175
+msgid ""
+"Enter a numeration series for previous orders and \"Save Changes\" before "
+"syncronizing."
+msgstr ""
+"Introducir una serie de numeración para los pedidos anteriores y guardar "
+"antes de sincronizar."
+
+#: includes/class-wc-quipu-integration.php:178
+msgid "Sync"
+msgstr "Sincronizar"
+
+#: includes/class-wc-quipu-integration.php:183
+msgid "Sync orders"
+msgstr "Sincroniza Pedidos"
+
+#: includes/class-wc-quipu-integration.php:187
+msgid " "
+msgstr ""
+
+#: includes/class-wc-quipu-integration.php:189
+msgid ""
+"<i>Note: Once the sync is completed, this option will disapear from the "
+"Quipu settings menu!</i>"
+msgstr ""
+"<i>Una vez la sincronización esté completa, esta opción desaparecerá.</i>"
+
+#: includes/class-wc-quipu-integration.php:284
+msgid ""
+"Cannot sync with Quipu with an empty \"Sync Numbering Series\". Please enter "
+"a \"Sync Numbering Series\" to sync previous orders."
+msgstr ""
+"No se puede sincronizar con Quipu con una serie de numeración vacía. Por "
+"favor, rellena la serie de numeración para sincronizar pedidos pagados ya "
+"existentes."
+
+#: includes/class-wc-quipu-integration.php:291
+msgid ""
+"The API key or secret are empty. Enter API key or secret to use WooCommerce "
+"Quipu plugin. "
+msgstr ""
+"La clave y/o secreto API están vacíos. Introducelos para empezar a usar el "
+"plugin de Quipu para WooCommerce."
+
+#: includes/class-wc-quipu-integration.php:298
+msgid ""
+"The \"Numbering Series\" and \"Sync Numbering Series\" cannot be the same. "
+msgstr ""
+"Las series de numeración para nuevos pedidos y pedidos pagados ya existentes "
+"no pueden ser la misma."
+
+#: includes/class-wc-quipu-integration.php:305
+#: includes/class-wc-quipu-integration.php:346
+msgid ""
+"The \"Sync Numbering Series\" already exists in Quipu. Enter a new numbering "
+"series to sync previous orders."
+msgstr ""
+"La serie de numeración para la sincronización ya existe en Quipu. Introduce "
+"una nueva serie de numeración para sincronizar pedidos ya existentes."
+
+#: includes/class-wc-quipu-integration.php:312
+msgid "Error, could not save settings."
+msgstr "Ha habido un error y no se ha podido guardar la configuración."
+
+#: includes/class-wc-quipu-integration.php:326
+msgid ""
+"Please enter a \"Sync Numbering Series\" before syncing previous orders."
+msgstr ""
+"Por favor, rellena una serie de numeración para poder sincronizar pedidos ya "
+"existentes."
+
+#: includes/class-wc-quipu-integration.php:331
+msgid "Please save your API key and secret before syncing previous orders."
+msgstr ""
+"Por favor, guarda la clave y el secreto de la API antes de sincronizar "
+"pedidos ya existentes."
+
+#: includes/class-wc-quipu-integration.php:380
+msgid "All previous orders have been synced with your Quipu account."
+msgstr ""
+"Todos los pedidos pagados ya existentes se han sincronizado con tu cuenta de "
+"Quipu."
+
+#: woocommerce-quipu.php:75
+msgid ""
+"WooCommerce Quipu Integration requires WooCommerce to be installed and "
+"activated!"
+msgstr ""
+"WooCommerce Quipu integración requiere WooCommerce para ser instalado y "
+"activado!"
+
+#~ msgid "Sync orders."
+#~ msgstr "Sincroniza Pedidos"
+
+#~ msgid ""
+#~ "Quipu accounting integration with WooCommerce. If you do not have a Quipu "
+#~ "account try it <a href=\"https://getquipu.com/programa-"
+#~ "facturacionautonomos-\n"
+#~ "2?utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce\" "
+#~ "target=\"_blank\">here</a>."
+#~ msgstr ""
+#~ "Integración del programa de facturación para ecommerce con WooCommerce. "
+#~ "Si aún no tienes una cuenta en Quipu, pruébalo gratis <a href=\"https://"
+#~ "getquipu.com/programa-facturacionautonomos-\n"
+#~ "2?utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce\" "
+#~ "target=\"_blank\">aquí</a>."
+
+#~ msgid "Enter your Quipu API Key. You can find this in ..."
+#~ msgstr ""
+#~ "Esta clave la tienes en tu cuenta de Quipu, en Configuración → "
+#~ "Integraciones → API."
+
+#~ msgid "Quipu accounting integration with WooCommerce."
+#~ msgstr ""
+#~ "Integración del programa de facturación para ecommerce con WooCommerce. "
+#~ "Si aún no tienes\runa cuenta en Quipu, pruébalo gratis [aquí](https://"
+#~ "getquipu.com/programa-facturacionautonomos-\r2?"
+#~ "utm_source=pluginwoocommerce&utm_medium=link&utm_campaign=ecommerce)."

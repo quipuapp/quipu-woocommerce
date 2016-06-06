@@ -43,6 +43,8 @@ class WC_Quipu {
 	*/
 	public function init() {
 
+		load_plugin_textdomain( 'woocommerce-quipu-integration', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+		
 		// Checks if WooCommerce is installed.
 		if ( class_exists( 'WC_Integration' ) ) {
 			// Include our integration class.
