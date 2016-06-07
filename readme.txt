@@ -1,5 +1,6 @@
 === Plugin Name ===
 Contributors: quipu, shadim
+Donate link: https://getquipu.com/en
 Tags: invoice, invoicing, quipu, getquipu, taxes, send invoice, invoice pdf
 Requires at least: 4.1
 Tested up to: 4.5.2
@@ -7,13 +8,13 @@ Stable tag: 4.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Quipu plugin for WooCommerce allows you to automate all your business' billing. Send custom invoices and manage your online store quickly and easily!
+Quipu plugin for WooCommerce allows you to automate all your business' billing. Send custom invoices and manage your online store!
 
 == Description ==
 
 Quipu plugin for WooCommerce allows you to automate all your business’ billing. Send custom invoices and manage your online store quickly and easily!
 
-All you can do with Quipu for WooCommerce
+All you can do with Quipu for WooCommerce:
 
 * Every time an order is successfully paid, the invoice automatically appears in your Quipu account
 * You can customize them, send them by mail, duplicate, download and much more
@@ -43,7 +44,7 @@ Follow the steps listed below to install the Quipu plugin for Woocomerce
 4. Once this is done, go to the "WooCommerce" section on the left and select "Settings", then “Integrations”
 5. Here, you will be asked for the API key and secret that you have in your Quipu account
 6. Enter into your Quipu account or sign up [here](https://getquipu.com/en/freelances/signup)
-7. Go to account settings and then to the "Integrations" tab.
+7. Go to account settings and then to the "Integrations" tab
 8. Here you will find the keys that you must fill in your WooCommerce to connect both accounts
 9. Configure the rest of the plugin information, like the numbering of invoices or the synchronization of previous data, and everything will be ready!
 
@@ -55,7 +56,19 @@ Once done, you have connected Quipu with WooCommerce and you can start controlli
 
 If you have any questions you can contact us [here](https://getquipu.com/en/contact).
 
+== Screenshots ==
+
+1. Copy the API key and the API secret you have in your Quipu account (Settings > Integration)
+2. Paste it in the Quipu for WooCommerce settings page
+3. Set up your Quipu account with your billing data and upload the logo of your ecommerce
+4. Your invoices will be customized and automatically created in your account
+
 == Changelog ==
+
+= 1.0 =
+* First public release
+
+== Upgrade Notice ==
 
 = 1.0 =
 * First public release
