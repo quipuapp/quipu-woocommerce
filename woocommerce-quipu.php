@@ -6,6 +6,8 @@
  * Author: Shadi Manna
  * Author URI: http://progressusmarketing.com/
  * Version: 1.0
+ * Text Domain: quipu-accounting-for-woocommerce
+ * Domain Path: /lang
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +45,7 @@ class WC_Quipu {
 	*/
 	public function init() {
 
-		load_plugin_textdomain( 'woocommerce-quipu-integration', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
+		load_plugin_textdomain( 'quipu-accounting-for-woocommerce', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
 		
 		// Checks if WooCommerce is installed.
 		if ( class_exists( 'WC_Integration' ) ) {
@@ -72,7 +74,7 @@ class WC_Quipu {
 	public function notice_wc_required() {
 	?>
 	<div class="error">
-		<p><?php _e( 'WooCommerce Quipu Integration requires WooCommerce to be installed and activated!', 'woocommerce-quipu-integration' ); ?></p>
+		<p><?php _e( 'WooCommerce Quipu Integration requires WooCommerce to be installed and activated!', 'quipu-accounting-for-woocommerce' ); ?></p>
 	</div>
 	<?php
 	}

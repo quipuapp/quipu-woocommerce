@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WC Quipu\n"
-"POT-Creation-Date: 2016-06-01 16:49+0200\n"
-"PO-Revision-Date: 2016-06-01 16:49+0200\n"
+"POT-Creation-Date: 2016-06-13 20:05+0200\n"
+"PO-Revision-Date: 2016-06-13 20:05+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -236,7 +236,7 @@ msgstr ""
 "Todos los pedidos pagados ya existentes se han sincronizado con tu cuenta de "
 "Quipu."
 
-#: woocommerce-quipu.php:75
+#: woocommerce-quipu.php:77
 msgid ""
 "WooCommerce Quipu Integration requires WooCommerce to be installed and "
 "activated!"
