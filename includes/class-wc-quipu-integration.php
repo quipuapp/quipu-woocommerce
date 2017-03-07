@@ -409,6 +409,14 @@ class WC_Quipu_Integration extends WC_Integration {
 
 				$quipu_contact = new Quipu_Api_Contact($this->api_connection);
 
+				$billing_country = get_post_meta($order_id, '_billing_country', true);
+
+				if( empty($billing_country) ) {
+					$billing_country = wc_get_base_location();
+					$billing_country = $billing_country['country'];
+					// error_log($billing_country);
+				}
+
 				$contact = array(
 				    		"name" => get_post_meta($order_id, '_billing_first_name', true)." ".get_post_meta($order_id, '_billing_last_name', true)." ".get_post_meta($order_id, '_billing_company', true),
 				            "tax_id" => get_post_meta($order_id, '_vat_number', true),
@@ -417,7 +425,7 @@ class WC_Quipu_Integration extends WC_Integration {
 				            "address" => get_post_meta($order_id, '_billing_address_1', true).",".get_post_meta($order_id, '_billing_address_2', true),
 				            "town" => get_post_meta($order_id, '_billing_city', true),
 				            "zip_code" => get_post_meta($order_id, '_billing_postcode', true),
-				            "country_code" => get_post_meta($order_id, '_billing_country', true)
+				            "country_code" => $billing_country
 						);
 
 				$this->logger->write("Contact: ".print_r($contact, true));
@@ -490,7 +498,7 @@ class WC_Quipu_Integration extends WC_Integration {
 					if( is_serialized( $shipping_tax )) { 
 						$shipping_tax = maybe_unserialize($shipping_tax);
 						// error_log(print_r($shipping_tax, true));
-						$shipping_tax = $shipping_tax[1];
+						$shipping_tax = reset($shipping_tax); // Get first element in Array
 						// error_log($shipping_tax);
 					}
 
