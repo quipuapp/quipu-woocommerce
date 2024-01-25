@@ -353,22 +353,22 @@ class WC_Quipu_Integration extends WC_Integration {
 		}						
 
 
-		$orders = get_posts( array(
-	        			'post_type'   		=> 'shop_order',
-	        			'post_status' 		=> array( 'wc-processing', 'wc-completed' ),
-	        			'posts_per_page' 	=> -1, // get all orders
-		) );
-		// error_log(print_r($orders, true));
-
-		// Get "Completed" date not order date
-		foreach ($orders as $order) {
-			// error_log(print_r($order->ID, true));
-			$completed_date = get_post_meta($order->ID, '_completed_date', true);
-			if(empty($completed_date)) {
-				$orders_comp[$order->ID] = $order->post_date;
+		$orders = wc_get_orders(array(
+			'status'         => array('wc-processing', 'wc-completed'),
+			'posts_per_page' => -1,
+		));
+		
+		// Get "Completed" date, not order date
+		$orders_comp = array();
+		
+		foreach ($orders as $wk_order) {
+			$completed_date = $wk_order->get_date_completed();
+		
+			if (empty($completed_date)) {
+				$orders_comp[$wk_order->get_id()] = $wk_order->get_date_created()->date('Y-m-d H:i:s');
 			} else {
-				$orders_comp[$order->ID] = $completed_date;	
-			}				
+				$orders_comp[$wk_order->get_id()] = $completed_date->date('Y-m-d H:i:s');
+			}
 		}
 		
 		// error_log(print_r($orders_comp, true));
@@ -391,8 +391,12 @@ class WC_Quipu_Integration extends WC_Integration {
 	 * Create a Quipu invoice, for a given order, prefix and completed date
 	 */
 	public function create_quipu_invoice( $order_id , $prefix, $completed_date) {
+		// error_log ( 'completed date: ' . $completed_date );
 
-		$quipu_invoice_id = get_post_meta($order_id, "_quipu_invoice_id", true);
+		$wk_order = wc_get_order( $order_id );
+
+		$quipu_invoice_id = $wk_order->get_meta( '_quipu_invoice_id', true );
+		// error_log( 'invoice id:' . $quipu_invoice_id );
 
 		// If no Quipu id exists then create Quipu invoice, otherwise it was already accounted for
 		// Potential issue, if status was "Completed" then "Pending" and stuck there, since in Quipu it is registered as an invoice still.  Solution, should probably be that it gets deleted in Quipu.
@@ -418,15 +422,17 @@ class WC_Quipu_Integration extends WC_Integration {
 				}
 
 				$contact = array(
-				    		"name" => get_post_meta($order_id, '_billing_first_name', true)." ".get_post_meta($order_id, '_billing_last_name', true)." ".get_post_meta($order_id, '_billing_company', true),
-				            "tax_id" => get_post_meta($order_id, '_vat_number', true),
-				            "phone" => get_post_meta($order_id, '_billing_phone', true),
-				            "email" => get_post_meta($order_id, '_billing_email', true),
-				            "address" => get_post_meta($order_id, '_billing_address_1', true).",".get_post_meta($order_id, '_billing_address_2', true),
-				            "town" => get_post_meta($order_id, '_billing_city', true),
-				            "zip_code" => get_post_meta($order_id, '_billing_postcode', true),
-				            "country_code" => $billing_country
-						);
+					"name" => $wk_order->get_billing_first_name() . " " . $wk_order->get_billing_last_name() . " " . $wk_order->get_billing_company(),
+					"tax_id" => $wk_order->get_meta( '_vat_number', true ),
+					"phone" => $wk_order->get_billing_phone(),
+					"email" => $wk_order->get_billing_email(),
+					"address" => $wk_order->get_billing_address_1() . "," . $wk_order->get_billing_address_2(),
+					"town" => $wk_order->get_billing_city(),
+					"zip_code" => $wk_order->get_billing_postcode(),
+					"country_code" => $wk_order->get_billing_country()
+				);
+
+				// error_log ( 'contact array: ' . print_r( $contact, true ) );
 
 				$this->logger->write("Contact: ".print_r($contact, true));
 				$quipu_contact->create_contact($contact);
@@ -436,9 +442,9 @@ class WC_Quipu_Integration extends WC_Integration {
 
 				$order = new WC_Order( $order_id );
 				// error_log(print_r($order, true));
-				$ordered_items = $order->get_items();
+				$ordered_items = $wk_order->get_items();
 				// error_log(print_r($ordered_items, true));
-				$shipping_items = $order->get_items('shipping');
+				$shipping_items = $wk_order->get_items('shipping');
 				// error_log(print_r($shipping_items, true));
 				// Add shipping "item"
 				// $shipping_total = $order->get_shipping_tax();
@@ -450,7 +456,7 @@ class WC_Quipu_Integration extends WC_Integration {
 				$wc_order_date = date('Y-m-d', strtotime($completed_date));
 				// error_log($wc_order_date);
 
-				$wc_payment_method = get_post_meta($order_id, '_payment_method', true);
+				$wc_payment_method = $wk_order->get_payment_method();
 				// The below are the default payment methods that come with WC
 				// These Quipu options were not set; "direct_debit", "factoring"
 				switch ($wc_payment_method) {
@@ -493,14 +499,23 @@ class WC_Quipu_Integration extends WC_Integration {
 				foreach ($shipping_items as $value) {
 					$shipping_name = 'Shipping: '.$value['name'];
 					$shipping_total = $value['cost'];
-					$shipping_tax = $value['taxes'];
+					$shipping_tax = $value['cost'];
+					// error_log(print_r($shipping_tax, true));
 
-					if( is_serialized( $shipping_tax )) { 
-						$shipping_tax = maybe_unserialize($shipping_tax);
-						// error_log(print_r($shipping_tax, true));
-						$shipping_tax = reset($shipping_tax); // Get first element in Array
-						// error_log($shipping_tax);
+					if (is_serialized($shipping_tax)) { 
+					    $shipping_tax = maybe_unserialize($shipping_tax);
+					
+					    // Check if the 'total' key exists and is an array
+					    if (is_array($shipping_tax['cost'])) {
+					        // Access the first element of the 'total' array
+					        $shipping_tax = $shipping_tax[1];
+					        // error_log('Shipping Tax: ' . $shipping_tax);
+					    }
 					}
+
+					// error_log( 'Shipping Name: ' . $shipping_name );
+					// error_log( 'Shipping Total: ' . $shipping_total );
+					
 
 					$shipping_tax_per = round( (($shipping_tax*100)/$shipping_total), 4);
 
@@ -521,10 +536,16 @@ class WC_Quipu_Integration extends WC_Integration {
 				$quipu_invoice->create_invoice($order);
 				$this->logger->write("Order Response: ".print_r($quipu_invoice->get_response(), true));
 
-				if(!add_post_meta($order_id, "_quipu_invoice_id", $quipu_invoice->get_id(), true)) {
-					$this->logger->write("Couldn't save Quipu ID");
+				$quipu_invoice_id = $quipu_invoice->get_id();
+				// error_log ('invoice id before: ' . $quipu_invoice_id );
+				$wk_order = wc_get_order( $order_id );
+
+				// Check and log the result of updating "_quipu_invoice_id" in the order meta
+				if ( $wk_order->update_meta('_quipu_invoice_id', $quipu_invoice_id )) {
+				    $wk_order->save();
+					$this->logger->write( "Quipu Invoice ID: " . $quipu_invoice_id );
 				} else {
-					$this->logger->write("Quipu Invoice ID: ".$quipu_invoice->get_id());	
+				    $this->logger->write( "Couldn't save Quipu ID" );
 				}
 			} catch (Exception $e) {
 				$this->logger->write($e->getMessage());
@@ -545,7 +566,9 @@ class WC_Quipu_Integration extends WC_Integration {
 	public function refunded_created( $refund_id, $args ) {
 		// error_log(print_r($args, true));
 
-		$quipu_invoice_id = get_post_meta($args['order_id'], "_quipu_invoice_id", true);
+		$wk_order = wc_get_order($args['order_id']);
+
+		$quipu_invoice_id = $wk_order->get_meta('_quipu_invoice_id', true);
 
 		if( !empty($quipu_invoice_id) ) {
 			$refund_amount = $args['amount'];
@@ -555,9 +578,9 @@ class WC_Quipu_Integration extends WC_Integration {
 			
 			$order = new WC_Order( $args['order_id'] );
 			// error_log(print_r($order, true));
-			$order_items = $order->get_items();
+			$order_items = $wk_order->get_items();
 			// error_log(print_r($order_items, true));
-			$order_amount = $order->get_total();
+			$order_amount = $wk_order->get_total();
 			// error_log("Order $: ".$order_amount);
 
 			try {
