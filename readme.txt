@@ -3,18 +3,19 @@ Contributors: quipu, shadim
 Donate link: https://getquipu.com/en
 Tags: invoice, invoicing, quipu, getquipu, taxes, send invoice, invoice pdf
 Requires at least: 4.1
-Tested up to: 4.5.2
-Stable tag: 4.5.2
+Tested up to: 4.6
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Quipu plugin for WooCommerce allows you to automate all your business' billing. Send custom invoices and manage your online store!
+Quipu plugin for WooCommerce allows you to automate all your business' billing. Send custom invoices and manage your
+online store!
 
 == Description ==
 
 Quipu plugin for WooCommerce allows you to automate all your business’ billing. Send custom invoices and manage your online store quickly and easily!
 
-All you can do with Quipu for WooCommerce:
+All you can do with Quipu Accounting for WooCommerce:
 
 * Every time an order is successfully paid, the invoice automatically appears in your Quipu account
 * You can customize them, send them by mail, duplicate, download and much more
@@ -36,7 +37,7 @@ This plugin requires that you have an account created in both [WooCommerce](http
 
 == Installation ==
 
-Follow the steps listed below to install the Quipu plugin for Woocomerce
+Follow the steps listed below to install the Quipu plugin for WooComerce
 
 1. Download the plugin and upload it to your website
 2. Go to your Wordpress dashboard and, on the left side, click on “Plugins”

@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: WooCommerce Quipu
+ * Plugin Name: Quipu for WooCommerce
  * Plugin URI: https://github.com/quipuapp/quipu-woocommerce
  * Description: WooCommerce integration with Quipu service
  * Author: Shadi Manna
  * Author URI: http://progressusmarketing.com/
- * Version: 1.0
+ * Version: 1.1.0
  * Text Domain: quipu-accounting-for-woocommerce
  * Domain Path: /lang
  *
@@ -46,7 +46,7 @@ class WC_Quipu {
 	public function init() {
 
 		load_plugin_textdomain( 'quipu-accounting-for-woocommerce', false, dirname( plugin_basename(__FILE__) ) . '/lang/' );
-		
+
 		// Checks if WooCommerce is installed.
 		if ( class_exists( 'WC_Integration' ) ) {
 			// Include our integration class.
